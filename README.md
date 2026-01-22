@@ -1,18 +1,18 @@
-# Exame de Qualificação 
+# Dissertação 
 
 ## Título (Provisório) do Projeto de Dissertação
 
 
 ## Sobre este repositório
 
-Este repositório contém os arquivos do meu exame de qualificação para o 
+Este repositório contém os arquivos da minha dissertação para o 
 Mestrado Profissional em Administração do IFMG - Campus Formiga, 
-sob orientação do Prof. Dr. [Nome do Orientador].
+sob orientação do Prof. Dr. [Washington Santos Silva].
 
 
 ## Estrutura do documento
 
-O documento para o exame de qualificação está sendo desenvolvido 
+O documento para a dissertação está sendo desenvolvido 
 conforme a seguinte estrutura:
 
 1. Introdução

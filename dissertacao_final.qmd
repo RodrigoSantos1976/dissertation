@@ -1,0 +1,649 @@
+---
+lang: pt
+format:
+  pdf:
+    include-before-body:
+      - file: pre_textuais.tex
+    include-in-header:
+      - text: |
+          \usepackage{indentfirst}
+          \usepackage{microtype}
+    documentclass: report
+    papersize: a4
+    geometry:
+      - top = 3cm
+      - bottom = 2cm
+      - left = 3cm
+      - right = 2cm
+    fontsize: 12pt
+    linestretch: 1.25
+    indent: true
+    toc: true
+    toc-title: Sumário
+    toc-depth: 3
+    number-sections: true
+    fig-dpi: 300
+    fig-cap-location: bottom
+    tbl-cap-location: top
+    lof: true
+    lot: true
+    link-citations: true
+execute: 
+  echo: false
+  warning: false
+  message: false
+crossref:
+  fig-prefix: 'Fig.'
+  tbl-prefix: 'Tab.'
+bibliography: referencias.bibtex
+csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
+editor: source
+---
+
+
+
+
+# Introdução {#sec-introducao}
+
+
+
+O Value Investing, originado pelos estudos de Benjamin Graham na década de 1930, é uma das abordagens mais tradicionais e amplamente documentadas na literatura financeira. O princípio central dessa filosofia é a aquisição de ativos negociados a preços inferiores ao seu valor intrínseco, criando uma Margem de Segurança suficiente para proteger o investidor contra incertezas e erros de estimativa @graham2003intelligent.
+
+Warren Buffett, discípulo de Graham, reforça que o sucesso do investimento em valor está associado à compra de negócios de qualidade com forte geração de caixa, governança sólida e baixo endividamento, independentemente de condições de mercado adversas. A evidência empírica internacional aponta que carteiras formadas com base em características de valor tendem a superar o mercado no longo prazo @fama1992cross.
+
+@Jensen1968 foi um dos primeiros autores a avaliar o desempenho de estratégias de investimento adotadas por gestores de carteira, ao introduzir a medida conhecida como alfa de Jensen, destinada a mensurar retornos excedentes ajustados ao risco. Sua abordagem fundamentou-se no Capital Asset Pricing Model (CAPM), desenvolvido por @Sharpe1964, que à época representava o principal modelo teórico de precificação de ativos. Contudo, o CAPM passou a ser amplamente questionado a partir das evidências empíricas apresentadas por @fama1992cross, que demonstraram limitações do modelo em explicar adequadamente os retornos das carteiras. Em resposta a essas críticas, estudos mais recentes passaram a sustentar que modelos multifatoriais oferecem maior capacidade explicativa tanto dos retornos quanto dos retornos excedentes observados no mercado acionário @FamaFrench2015.
+  
+Nesse sentido, esta pesquisa avalia o desempenho de duas carteiras de ações, cada uma composta por 10 ativos, construídas com base em critérios fundamentalistas inspirados em Graham e adaptados ao contexto brasileiro. Ambas as carteiras são formadas no mesmo período amostral, porém diferem quanto ao grau de atratividade relativa em relação ao valor intrínseco estimado: a primeira carteira é composta pelas 10 ações mais baratas em relação ao seu valor intrínseco, incorporando explicitamente o critério de margem de segurança, enquanto a segunda reúne as 10 ações relativamente mais caras em relação ao valor intrínseco, embora ainda elegíveis segundo os filtros fundamentais de Graham. O desempenho dessas carteiras é comparado a um benchmark de mercado (BOVA11), com o objetivo de examinar não apenas os retornos obtidos, mas também a natureza do risco sistemático subjacente aos resultados observados.
+
+O período analisado compreende 31 de março de 2015 a 31 de dezembro de 2025, com retornos mensais. Os fatores de risco do NEFIN, originalmente disponibilizados em frequência diária, são agregados para a periodicidade mensal por meio de composição geométrica, assegurando consistência com a métrica de retorno simples utilizada nas séries de ativos e permitindo estimações compatíveis com os modelos de apreçamento amplamente empregados na literatura empírica.
+
+Os resultados descritivos indicam que a carteira construída com base na margem de segurança apresentou desempenho superior ao ETF de mercado tanto em termos de retorno quanto de métricas ajustadas ao risco. Em particular, o Índice de Sharpe Modificado anualizado, calculado com base no Value at Risk (VaR) ao nível de confiança de 95%, foi de 1,04 para a carteira, em contraste com 0,16 para o BOVA11, indicando uma relação retorno–risco substancialmente mais favorável quando se considera o risco de cauda. No mesmo horizonte temporal, o retorno acumulado da carteira foi expressivamente superior ao do benchmark, alcançando aproximadamente 636%, enquanto o BOVA11 acumulou cerca de 219%. Em termos anualizados, os retornos geométricos foram da ordem de 20,24% ao ano para a carteira e 11,31% ao ano para o ETF, respectivamente. Esses resultados sugerem que a estratégia fundamentada em critérios de valor e margem de segurança foi capaz de gerar desempenho superior ao longo do período analisado, ainda que sujeita a episódios de maior volatilidade.
+
+Para avaliar se o desempenho da carteira decorre da geração de retornos anormais (alfa) ou, alternativamente, de exposições sistemáticas a fatores de risco conhecidos, são estimados modelos de apreçamento de ativos com complexidade crescente, incluindo o CAPM, o modelo Fama–French de três fatores, o modelo de quatro fatores de Carhart e um modelo de cinco fatores baseado nos dados do NEFIN. As evidências empíricas indicam que a carteira apresenta exposição significativa ao fator de mercado, porém com coeficiente beta inferior à unidade no CAPM (aproximadamente 0,84), sugerindo sensibilidade moderada às variações do mercado agregado. A inclusão dos fatores tamanho (SMB), valor (HML) e momentum (WML) aumenta o poder explicativo dos modelos de forma consistente, com o \(R^2\) ajustado elevando-se de aproximadamente 0,62 no CAPM para valores em torno de 0,66–0,68 nos modelos multifatoriais. Observa-se ainda que o intercepto é estatisticamente significativo apenas no modelo CAPM, perdendo significância à medida que fatores adicionais são incorporados, o que sugere que parte do desempenho superior da carteira pode ser atribuída à exposição sistemática a fatores de risco amplamente documentados na literatura.
+
+
+Por outro lado, o fator investimento/iliquidez (IML) apresentou significância estatística na especificação de cinco fatores para essa carteira, indicando que características associadas a iliquidez e padrões de investimento contribuem de forma relevante para a explicação dos retornos observados no período analisado. Em conjunto, os resultados sugerem que o desempenho superior da carteira está majoritariamente associado à exposição sistemática a prêmios de risco amplamente documentados na literatura, especialmente aqueles relacionados a tamanho, valor, momentum e investimento, em vez de refletir a presença de retornos anormais persistentes não explicados pelos modelos de apreçamento considerados.
+
+
+Os resultados descritivos da carteira composta por ativos classificados como relativamente mais caros apresentou desempenho próximo ao do ETF de mercado, sem evidências de superioridade consistente em termos de retorno ajustado ao risco. O Índice de Sharpe Modificado anualizado, calculado com base no *Value at Risk* (VaR) ao nível de confiança de 95%, foi de **0,14** para a carteira, valor semelhante ao observado para o **BOVA11 (0,16)**, indicando uma relação retorno–risco comparável quando considerado o risco de cauda. No horizonte analisado, o retorno acumulado da carteira atingiu aproximadamente **227%**, enquanto o ETF de mercado acumulou cerca de **219%**, diferença economicamente modesta. Em termos anualizados, os retornos geométricos situaram-se em torno de **11,56% ao ano** para a carteira e **11,31% ao ano** para o BOVA11, respectivamente. Esses resultados sugerem que a estratégia baseada na aquisição de ativos relativamente mais caros **não foi capaz de gerar desempenho superior de forma consistente**, apresentando comportamento amplamente alinhado ao mercado agregado.
+
+A análise por meio de modelos de apreçamento de ativos indica que o desempenho da carteira de ativos mais caros é amplamente explicado por **exposição a fatores de risco sistemáticos**, em especial ao fator de mercado, com coeficiente beta superior à unidade. A inclusão dos fatores tamanho (SMB), valor (HML) e momentum (WML) aumenta de forma consistente o poder explicativo dos modelos, com o \(R^2\) ajustado elevando-se de aproximadamente **0,71 no CAPM** para valores entre **0,77 e 0,79** nos modelos multifatoriais. Em todos os modelos estimados, o intercepto não se mostra estatisticamente significativo, sugerindo **ausência de geração de alfa**, o que reforça a interpretação de que a carteira apresenta comportamento essencialmente compatível com o mercado, sem evidência de retornos anormais persistentes.
+
+Além da contribuição empírica, o trabalho também tem caráter aplicado e educacional, ao estruturar um procedimento replicável de construção de carteira e avaliação por modelos de fatores no Brasil, com potencial de incorporação em ferramenta de apoio ao ensino e à análise de investimentos. 
+
+Este trabalho também apresenta, como contribuição complementar, o desenvolvimento de uma ferramenta educacional — o GrahamLab — destinada a simular e acompanhar o desempenho de carteiras fundamentadas nos princípios de Graham, aproximando a produção científica do ensino e da prática de investimentos.
+
+
+Além desta introdução, este documento está estruturado da seguinte forma: a @sec-revisao mostra a revisão da literatura realizada; a @sec-objetivos apresenta o objetivo geral (@sec-objgeral) e específicos (@sec-objespecficos); a @sec-metodologia descreve a metodologia proposta e os dados a serem utilizados. Por fim, a Seçao @sec-resultados aborda os resultados. 
+
+
+# Revisão de Literatura {#sec-revisao}
+
+
+## Benjamin Graham, Valor Intrínseco e Margem de Segurança
+
+Benjamin Graham é considerado o pai do Value Investing por estabelecer princípios fundamentais para a avaliação de ações com base em seus fundamentos econômicos e contábeis. Em sua obra , @graham2003intelligent, argumenta que o mercado, movido por ciclos de otimismo e pessimismo, frequentemente precifica ativos de forma desconectada de seu valor econômico subjacente. Essa premissa dá origem a duas contribuições essenciais: o conceito de valor intrínseco e a Margem de Segurança.
+
+O valor intrínseco pode ser definido como a estimativa do valor econômico de uma empresa com base em sua capacidade futura de geração de caixa, patrimônio, lucro e outros indicadores que refletem seu desempenho operacional. Trata-se de uma medida subjetiva, mas fundamentada, que permite ao investidor identificar discrepâncias entre o preço de mercado e o verdadeiro valor da empresa @damodaran2012investment.
+
+Complementarmente, a Margem de Segurança protege o investidor contra erros de estimativa e eventos adversos. @graham2003intelligent, a compra de ações apenas quando seu preço se encontra substancialmente abaixo do valor intrínseco reduz a probabilidade de perdas permanentes de capital. Estudos recentes reforçam que essa proteção é particularmente relevante em mercados emergentes, onde níveis mais elevados de incerteza podem gerar maior volatilidade dos preços @rossijunior2022filtros.
+
+Além disso, Graham propõe um conjunto de filtros quantitativos que auxiliam na identificação de empresas sólidas e descontadas, considerando métricas como relação Preço/Lucro, relação Preço/Valor Patrimonial, endividamento controlado e histórico de lucratividade. Esses filtros se tornaram amplamente reconhecidos e inspiraram inúmeras adaptações posteriores na literatura de investimentos, incluindo análises de múltiplos fundamentalistas aplicadas à B3.
+
+Neste trabalho, utiliza-se uma adaptação desses filtros para o contexto brasileiro aliada à exigência de uma Margem de Segurança mínima de 33% em relação ao valor intrínseco estimado, a fim de garantir uma aproximação aos princípios originais de Graham. Essa abordagem permite diferenciar empresas que são apenas “aparentemente baratas” daquelas que representam oportunidades genuínas de investimento em valor.
+
+Em síntese, a filosofia de Graham fornece a base conceitual que sustenta este estudo, orientando tanto o processo de seleção de ativos quanto a interpretação dos resultados empíricos em termos de risco, retorno e proteção contra assimetria de mercado.
+
+## Hipotese de Mercados Eficientes 
+
+A Hipótese dos Mercados Eficientes (HME) postula que os preços dos ativos financeiros refletem plenamente todas as informações disponíveis, de modo que o preço observado em mercado constitui a melhor estimativa possível de seu valor fundamental. Assim, eventuais desvios entre o preço de mercado e o valor intrínseco tenderiam a ser rapidamente eliminados por meio de operações de arbitragem, conduzindo à convergência dos preços @Fama1970.
+
+A HME fundamenta-se em um conjunto de pressupostos teóricos restritivos. Em primeiro lugar, assume-se a existência de concorrência perfeita, com número suficientemente grande de participantes, de forma que decisões individuais não sejam capazes de influenciar os preços dos ativos. Em segundo lugar, os investidores são considerados racionais, possuindo preferências estáveis, expectativas racionais e comportamento orientado à maximização da utilidade esperada. Ademais, pressupõe-se homogeneidade das expectativas, decorrente do acesso simétrico às informações e aos mercados financeiros. Soma-se a isso a hipótese de que novas informações surgem de maneira aleatória e são instantaneamente incorporadas aos preços, em mercados caracterizados pela ausência de fricções, tais como custos de transação, restrições à divisibilidade dos ativos ou barreiras à negociação. Por fim, assume-se que os agentes econômicos são capazes de processar de forma ótima todas as informações disponíveis.
+
+Sob tais condições, prevalece o resultado central do modelo de passeio aleatório (random walk), segundo o qual as variações nos preços dos ativos financeiros são imprevisíveis e independentes das variações passadas @Cunningham1994. Como o preço corrente já incorpora toda a informação disponível sobre os fundamentos do ativo, alterações nos preços ocorrem apenas em resposta à chegada de novas informações relevantes, capazes de modificar as expectativas dos investidores quanto ao retorno futuro, ao risco ou à liquidez do ativo.
+
+De acordo com a HME, ganhos extraordinários no mercado acionário não decorrem da exploração sistemática de informações públicas, mas apenas de realocações aleatórias de portfólio motivadas por mudanças na demanda por liquidez, na aversão ao risco ou nas condições de oferta. Sendo essas realocações essencialmente aleatórias, apenas efeitos específicos — como aqueles associados a motivações tributárias, a exemplo do chamado efeito janeiro — poderiam gerar padrões previsíveis de retorno. Nesse contexto, não haveria justificativa econômica para o dispêndio de tempo e recursos na análise de informações públicas com o objetivo de obter retornos superiores à média do mercado, uma vez que tais informações já estariam incorporadas aos preços dos ativos @Fama1970.
+
+A suposição central de simetria informacional elimina, portanto, a possibilidade de ganhos extraordinários persistentes. Apenas investidores detentores de informações privilegiadas poderiam, em tese, “vencer o mercado”, o que implicaria que, na ausência de insider trading, a estratégia ótima para o investidor médio seria a manutenção, ao longo do tempo, de um portfólio amplamente diversificado.
+
+
+## Estudos Internacionais e Modelos Multifatoriais
+
+A partir da década de 1990, os estudos de @fama1992cross desafiaram o paradigma do CAPM, apontando que o risco sistemático relacionado ao mercado não é suficiente para explicar os retornos observados em carteiras de ações. Os autores introduziram o modelo de três fatores, incorporando os efeitos de tamanho (SMB – Small Minus Big) e valor (HML – High Minus Low), demonstrando empiricamente que ações de empresas menores e com altos índices book-to-market tendem a apresentar maiores retornos no longo prazo.
+
+Posteriormente, @FamaFrench2015 expandiram o modelo para cinco fatores, adicionando os efeitos de lucratividade (RMW) e investimento (CMA), reforçando a compreensão de que os fundamentos contábeis exercem papel determinante na precificação dos ativos. Estudos internacionais recentes reforçam a relevância desse modelo, especialmente em mercados com composição expressiva de empresas de médio e pequeno porte @HouXueZhang2020.
+
+Entretanto, apesar de a literatura multifatorial se aproximar da filosofia do Value Investing, existem diferenças relevantes na definição acadêmica de “valor” e nas métricas preconizadas por @graham2003intelligent. O fator HML captura empresas com elevados índices de book-to-market, enquanto Graham recomenda avaliação combinada de múltiplos fundamentalistas, incluindo endividamento, rentabilidade e histórico de dividendos, além do cálculo de valor intrínseco e aplicação de Margem de Segurança. Assim, empresas classificadas como “valor” pelos modelos multifatoriais podem não atender aos critérios de qualidade definidos por Graham e vice-versa.
+
+Essa distinção conceitual tem sido discutida em estudos internacionais que questionam a capacidade do HML de capturar empresas genuinamente “baratas” sob a ótica do investidor fundamentalista. @AsnessFrazziniPedersen2019 mostram que diferentes definições de valor podem gerar exposições a riscos distintos, enquanto @GrayCarlisle2013 argumentam que o uso isolado de métricas simples
+de book-to-market pode levar à seleção de empresas estruturalmente frágeis,
+mascarando riscos financeiros relevantes e confundindo fragilidade econômica
+com oportunidades genuínas de valor.
+
+De forma semelhante, @PenmanReggianiRichardson2018 destacam que medidas contábeis isoladas são insuficientes para avaliar a sustentabilidade econômica das firmas.
+
+
+Neste trabalho, o uso combinado do CAPM e do modelo multifatorial baseado nos fatores do NEFIN permite avaliar não apenas o retorno excedente das estratégias de Graham, mas também identificar quais fatores de risco estão associados ao seu desempenho. 
+
+
+Essa análise fornece subsídios para compreender se o Value Investing no Brasil constitui um prêmio por risco ou uma anomalia de mercado, contribuindo para a discussão sobre a validade dos modelos de precificação em economias emergentes.
+
+
+## Estudos brasileiros sobre Value Investing
+
+No Brasil, a produção acadêmica dedicada ao Value Investing tem evoluído de forma consistente nas últimas décadas, acompanhando o interesse crescente do mercado doméstico por estratégias fundamentadas. Estudos iniciais concentraram-se na análise de características contábeis associadas ao desempenho de carteiras classificadas como valor e crescimento, em linha com as contribuições de @fama1992cross. Progressivamente, diferentes trabalhos passaram a explorar abordagens baseadas na lógica de Graham, com adaptações metodológicas adequadas ao contexto brasileiro. Ainda que nem todos os elementos da filosofia original tenham sido operacionalizados simultaneamente — como a Margem de Segurança ou critérios mais abrangentes de qualidade financeira — a literatura nacional apresenta contribuições relevantes que pavimentam o caminho para investigações que busquem integração mais ampla desses fundamentos.
+
+
+
+@salgueiro2007comparacao representa uma das primeiras iniciativas relevantes no contexto nacional a testar a estratégia de value investing baseada nos filtros de Graham. Ao construir uma carteira fundamentada nesses critérios, o autor observou um desempenho acumulado de 646% no período analisado, em contraste com uma valorização de 227% do Ibovespa, utilizado como proxy da carteira de mercado. Com base nesses resultados, concluiu-se que os filtros fundamentalistas propostos por Graham foram capazes de gerar retornos excedentes no mercado acionário brasileiro, mesmo em um ambiente caracterizado por maior volatilidade e menor previsibilidade em relação aos mercados desenvolvidos.
+
+@pinheiro2009value conduziram um estudo com abordagem semelhante à de @salgueiro2007comparacao porém adotaram filtros ainda mais alinhados aos critérios originalmente propostos por @graham2003intelligent. Notadamente, os autores também incorporaram alguns indicadores não testados por outros trabalhos anteriores, conferindo ao estudo uma estrutura metodológica própria. A exemplo de Salgueiro, a carteira foi composta em uma data específica e mantida inalterada ao longo de todo o período de análise. Os resultados apontaram um desempenho acumulado de 566% para a carteira fundamentada nos filtros, em comparação com uma valorização de 219% do Ibovespa no mesmo intervalo, reforçando a efetividade da estratégia de Graham na seleção de ativos no contexto brasileiro
+
+@almeida2011graham ao empregar uma abordagem empirica utilizando filtros fundamentalistas via quartis, múltiplos como P/L, P/VPA e ROE, demonstraram que metade das carteiras formadas a partir desses filtros apresentou alfa positivo, superando o Ibovespa, o que reforçou a viabilidade da estratégia mesmo em um ambiente emergente. Ainda que o estudo não tenha estimado diretamente o valor intrínseco dos ativos, os múltiplos empregados podem ser interpretados como proxies parciais dessa medida. 
+
+@holloway2012graham introduziu uma perspectiva diferenciada ao analisar os fatores que influenciam a permanência de ações em fundos value. A pesquisa destacou a estabilidade dos lucros, a rentabilidade sobre ativos (ROA) e a margem bruta como determinantes relevantes para a manutenção dos papéis nas carteiras, contribuindo para o debate sobre a importância de fundamentos consistentes na construção de portfólios. Destaca-se que a estabilidade dos lucros, evidenciada como fator crítico pelo autor, está implicitamente contemplada na fórmula do valor intrínseco de Graham, que utiliza o Lucro por Ação (LPA) como variável-chave. Assim, a consistência nos resultados da empresa reforça não apenas sua atratividade fundamentalista, mas também a confiabilidade da estimativa de valor proporcionada pela fórmula.
+
+@palazzo2014filtros aprofundaram a análise sobre a aplicabilidade dos filtros de Graham no contexto brasileiro, avaliando a relevância de cada filtro tanto individualmente quanto em combinação. @holloway2013value reforçaram a centralidade dos fundamentos contábeis nas decisões de compra e manutenção de ações por gestores de fundos, validando empiricamente que estabilidade de lucros, ROA e margem bruta são fatores decisivos nesse processo.
+
+@zeidler2014magic introduziu no Brasil a aplicação da Magic Formula de Joel Greenblatt, estratégia que combina o retorno sobre o capital investido (ROIC) e o lucro relativo ao preço das ações (Earnings Yield). O estudo demonstrou que todas as carteiras testadas superaram o desempenho do Ibovespa, com destaque para a melhor configuração, que apresentou um CAGR de 40% e betas inferiores a um, indicando menor risco sistemático.
+
+A Magic Formula pode ser compreendida como uma vertente moderna do value investing, com raízes conceituais na filosofia de Benjamin Graham. Enquanto Graham enfatizava a compra de ações com margem de segurança baseada no valor intrínseco calculado a partir de fundamentos como lucro por ação (LPA) e valor patrimonial por ação (VPA), Greenblatt simplificou essa abordagem ao combinar duas métricas objetivas: Earnings Yield (como proxy de preço atrativo) e ROIC (como indicador de qualidade empresarial).
+
+Posteriormente, @milane2016value reforçou a aplicabilidade da Magic Formula ao testar diferentes tamanhos de carteiras e períodos de permanência, validando sua eficácia especialmente em contextos de alta volatilidade. Os resultados corroboram a ideia de que a abordagem sistematizada de Greenblatt mantém a essência da análise fundamentalista de Graham, ao mesmo tempo que propicia maior replicabilidade e aderência prática por parte dos investidores individuais.
+
+@palazzo2018carteiras em uma análise empírica robusta com dados do sistema Economatica®, avaliaram a aplicabilidade dos filtros de Benjamin Graham ao mercado acionário brasileiro. Inicialmente, o comportamento histórico dos múltiplos das empresas foi analisado no período de janeiro de 1995 a dezembro de 2004, considerando-se válidas para a amostra todas as ações que apresentaram ao menos uma negociação em 2004, totalizando 313 companhias e 532 ações. As carteiras foram compostas na data-base de 29 de abril de 2005 — após a divulgação dos balanços anuais — e mantidas de forma passiva até 30 de abril de 2015, totalizando dez anos de verificação. As carteiras não foram rebalanceadas, e os proventos foram reinvestidos nas mesmas ações. A seleção seguiu critérios de liquidez, escolhendo-se apenas a ação mais líquida por companhia para evitar concentração e garantir maior replicabilidade prática.
+
+Para adaptar os filtros de Graham à realidade brasileira, os autores ajustaram os patamares de corte conforme a necessidade do contexto local, evitando a simples transposição dos parâmetros definidos nos Estados Unidos na década de 1970. Os sete filtros utilizados foram:
+(1) Receita operacional bruta anual superior a R$ 300 milhões, com base na definição legal de grandes empresas;
+(2) Liquidez corrente mínima de 1,22, equivalente à mediana das empresas brasileiras em 2004;
+(3) Lucros ininterruptos nos últimos cinco anos, buscando resiliência frente aos ciclos econômicos;
+(4) Pagamento contínuo de dividendos nos últimos cinco anos, como evidência de geração e distribuição estável de lucros;
+(5) Crescimento médio anual dos lucros por ação de pelo menos 2,66% ao ano ao longo de uma década, conforme proposto por Graham;
+(6) Preço/Lucro (P/L) inferior a 7, como aproximação da atratividade relativa frente à taxa Selic de 2004 (17,75%);
+(7) Preço/Valor Patrimonial (P/VP) inferior a 1,00, ou, alternativamente, com o produto entre P/L e P/VP inferior a 7, respeitando o princípio de compensação entre os múltiplos;
+
+
+
+A construção das carteiras seguiu uma lógica ingênua, selecionando as 10 ações mais líquidas que satisfaziam cada filtro individualmente, além de carteiras compostas com todos os filtros simultaneamente. Também foram realizadas simulações retirando-se filtros um a um para identificar sua relevância marginal. O desempenho das carteiras foi avaliado por métricas como retorno médio anual, volatilidade (desvio padrão), índice de Sharpe, beta e alpha de Jensen, sempre sem considerar impostos ou custos de transação, buscando comparabilidade com produtos financeiros reais, como fundos de investimento.
+
+Os resultados do estudo indicam que a aplicação dos filtros fundamentados no modelo de Graham foi, em grande parte, eficaz para gerar carteiras com desempenho superior ao Ibovespa no período de maio de 2005 a abril de 2015. Quando aplicados isoladamente, os filtros 3 (lucros ininterruptos por cinco anos), 5 (crescimento médio de lucros de 2,66% ao ano por 10 anos) e 7 (produto P/L x P/VP menor ou igual a 7) destacaram-se por proporcionar os maiores retornos e melhores índices de Sharpe, superando não apenas o benchmark de mercado, mas também a taxa Selic. O filtro 7, em particular, apresentou o maior índice de Sharpe (0,0637), o menor beta (0,6846) e o maior alpha (0,72), evidenciando-se como o critério mais eficiente quando aplicado de forma isolada.
+
+Entretanto, ao aplicar todos os sete filtros simultaneamente, observou-se uma carteira com retorno anualizado de 11,10% e volatilidade de 16,52%, superior ao Ibovespa em termos de risco-retorno ajustado. Para avaliar a contribuição individual de cada filtro dentro da seleção conjunta, os autores retiraram cada critério separadamente. Essa análise revelou que os filtros 2 (liquidez corrente) e 3 (lucros ininterruptos) foram os únicos cuja retirada causou queda significativa na performance da carteira, confirmando sua relevância. Já os filtros 1 (porte mínimo de R$ 300 milhões) e 6 (P/L menor que 7) mostraram-se irrelevantes, pois sua exclusão não alterou a composição nem o desempenho da carteira, sugerindo que essas condições eram amplamente atendidas pelas empresas selecionadas pelos demais critérios. Curiosamente, os filtros 4 (pagamento contínuo de dividendos), 5 (crescimento decenal dos lucros) e 7 (P/L x P/VPA menor que 7), que tiveram bom desempenho isoladamente, apresentaram efeito negativo quando utilizados em conjunto, gerando carteiras com desempenho superior quando foram retirados.
+
+Dessa forma, o estudo evidencia que os critérios mais relevantes para o mercado brasileiro no período analisado foram aqueles relacionados à liquidez de curto prazo e à consistência nos lucros. A aplicação da metodologia de Graham, adaptada ao contexto nacional, resultou em carteiras com retornos ajustados ao risco superiores ao mercado, beta inferior a 1,00 e alpha positivo, reforçando a validade do value investing como estratégia eficaz no Brasil.
+
+@almeida2019value complementou essa discussão ao avaliar o impacto de diversos indicadores fundamentalistas nos retornos das ações do IBrX-100. Os autores confirmaram a relevância de múltiplos como P/L, P/VPA, ROA e VarLL, demonstrando que tais métricas podem atuar como proxies efetivas para a seleção de ativos baseados em fundamentos.
+
+@rodrigues2021estrategia contribuíram ao propor a hierarquização dos filtros de Graham, priorizando aqueles com maior poder preditivo. Além disso, incorporaram métricas de risco ajustado, como os índices de Sharpe, Treynor e o alfa de Jensen, e ampliaram os benchmarks utilizados, incluindo CDI e IBrX, o que fortaleceu a comparabilidade e a robustez das análises.
+
+@conceicao2021graham avaliou a eficácia da Magic Formula em diferentes configurações de tamanho de carteira e horizonte de permanência. Os resultados indicaram que a estratégia superou o desempenho do Ibovespa em todas as configurações testadas, consolidando sua relevância no cenário nacional.
+
+@batista2022estrategia, analisou a interação entre filtros de Graham, a Magic Formula e o ciclo de vida das empresas. O estudo sugeriu que o estágio de maturidade das companhias pode influenciar significativamente a efetividade dos filtros fundamentalistas. 
+
+@rossijunior2022filtros introduziu o conceito de rebalanceamento periódico semestral na aplicação dos filtros de Graham, demonstrando que a atualização sistemática das carteiras proporcionou desempenho superior ao modelo Buy and Hold e ao próprio Ibovespa. O estudo evidencia a relevância de uma abordagem dinâmica e contínua, voltada à constante aproximação entre o preço de mercado e o valor intrínseco dos ativos. Diferentemente de modelos que indicam o ponto de venda com base no alcance do valor intrínseco, o rebalanceamento proposto não utiliza esse critério, mantendo a estrutura dos filtros independentemente da valorização alcançada. Ainda assim, o trabalho representa um avanço importante em relação à proposta de @palazzo2018carteiras, ao incorporar uma lógica de atualização periódica que potencializa os ganhos da estratégia fundamentada em value investing.
+
+@domingues2022value, realizaram uma análise comparativa entre as estratégias de Piotroski, Graham e Greenblatt, empregando modelos multifatoriais de precificação. O estudo destacou a superioridade da estratégia de Graham, que apresentou o melhor desempenho anualizado (36,14%), superando Piotroski (30,06%) e Greenblatt (21,92%), além de superar o próprio Ibovespa (9,26%).
+
+Em uma abordagem mais recente, @barros2024value propuseram uma metodologia baseada em rankings setoriais trimestrais, com o objetivo de adaptar a estratégia de value investing à heterogeneidade dos setores da economia brasileira. O estudo testou carteiras de 10 e 20 ativos no período de 1998 a 2020 e demonstrou que tais carteiras superaram sistematicamente os benchmarks utilizados (Ibovespa e IBrX100). 
+
+Paralelamente a essas contribuições, a literatura nacional passou a consolidar a aplicação da Magic Formula como um complemento relevante à abordagem tradicional proposta por Graham. Estudos como @zeidler2014magic, @milane2016value e @conceicao2021graham reforçaram a robustez dessa estratégia, validando sua eficácia em diferentes contextos operacionais e períodos de análise. Essa linha de pesquisa evidencia que a combinação de indicadores de rentabilidade e valor relativo pode ampliar o potencial de geração de retornos, conferindo maior consistência ao processo de seleção de ativos fundamentado em princípios do value investing.
+
+
+O estudo de @viana2024dividend avança ao adaptar e testar a metodologia Big Safe Dividends (BSD) no contexto brasileiro. A pesquisa demonstra que as carteiras formadas com base no BSD — um indicador composto por dez filtros financeiros associados à segurança e persistência dos dividendos — superaram consistentemente os principais índices de mercado (Ibovespa, IDIV, IBrX e IGC) no período de 2010 a 2023, tanto em retorno absoluto quanto na geração de alfa.
+
+
+
+
+::: {.landscape}
+
+```{r}
+#| label: tbl-1
+#| tbl-cap: "Estudos sobre Value Investing no Brasil e a Utilização do Conceito de Valor Intrínseco."
+
+# carrega pacotes necessários
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+
+tab01 <- tribble(
+  ~`Autor(es)`, ~`Período`, ~`Objetivo`, ~`Resultados Principais`, ~`Valor Intrínseco`,
+  "Salgueiro (2007)", "2000–2006", "Aplicação dos filtros de Graham", "Retorno de 646% vs 227% do Ibovespa", "Filtros tradicionais como proxy do valor",
+  "Pinheiro & Passos (2009)", "2000–2007", "Filtros aderentes à obra de Graham", "Retorno de 566% vs 219% do Ibovespa", "Estrutura fiel à proposta original; sem cálculo direto",
+  "Almeida et al. (2011)", "1997–2011", "Filtros via quartis", "Metade das carteiras superou o Ibovespa", "Múltiplos compatíveis; sem cálculo direto",
+  "Holloway (2012)", "2008–2011", "Permanência em fundos", "ROA, lucros estáveis e margem bruta relevantes", "Aplicação indireta; fundamentos ligados ao valor",
+  "Palazzo et al. (2013)", "2003–2012", "Teste dos filtros", "Porte, liquidez e lucros consistentes foram mais eficazes", "Filtros como aproximação; sem métrica formal",
+  "Holloway (2013)", "2008–2011", "Seleção por fundamentos", "ROA, lucros estáveis e margem bruta decisivos", "Alinhado à lógica do valuation",
+  "Zeidler (2014)", "2002–2014", "Magic Formula", "Todas as carteiras superaram o Ibovespa", "Valor implícito: ROIC + earnings yield",
+  "Galdi & Lima (2016)", "2001–2011", "PEAD + filtros", "Surpresa de lucros melhora seleção", "Proxy de subavaliação; aplicação indireta",
+  "Palazzo et al. (2018)", "2005–2015", "Adaptação dos filtros", "Lucros consistentes e liquidez se destacaram", "Sem cálculo direto; reforça fundamentos",
+  "Almeida & Sales (2019)", "2009–2018", "Indicadores no IBrX-100", "P/L, P/VPA e VarLL entre os mais relevantes", "Proxies estatísticos; sem estimação formal",
+  "Rodrigues et al. (2021)", "2010–2019", "Hierarquização de filtros", "Melhor seleção com ranking; dividendos menos relevantes", "Valuation implícito; sem fórmula unificada",
+  "Conceição (2021)", "2006–2020", "Magic Formula e carteira", "Todas as carteiras superaram o benchmark", "Aproximação objetiva de valor",
+  "Batista (2022)", "2010–2021", "Graham vs. Magic", "Magic teve retornos anormais; ciclo relevante", "Comparação entre métricas de valor",
+  "Rossi Jr. (2022)", "2015–2020", "Rebalanceamento + setor", "Melhor desempenho ajustado ao risco", "Aproximação dinâmica entre preço e fundamentos"
+)
+
+# Cria a tabela usando o pacote kableExtra
+tab01 %>%
+  kable("latex",
+    booktabs = TRUE, 
+    longtable = TRUE,
+  ) %>%
+  kable_styling(
+    font_size = 8,
+    full_width = FALSE,
+    latex_options = c("repeat_header", "scale_down", "hold_position")) %>%
+  row_spec(0, bold = TRUE) %>%  # Linha 0 = cabeçalho em negrito
+  column_spec(3:5, width = "3cm")
+```
+
+::: 
+
+
+Fonte: elaborado pelo autor.
+
+Com base nessas contribuições, observa-se uma trajetória de amadurecimento da literatura nacional, que passou a considerar de maneira crescente os fundamentos contábeis e financeiros na avaliação de ações de valor no Brasil. Inserindo-se nessa evolução, o presente estudo busca integrar, em um arcabouço único, os critérios clássicos de Graham, a aplicação explícita da Margem de Segurança e a análise de fatores de risco amplamente reconhecidos pela literatura, utilizando tanto o CAPM quanto um modelo multifatorial com fatores do NEFIN. Esse direcionamento permite aprofundar a compreensão sobre o comportamento de estratégias fundamentadas na B3 e identificar quais elementos contribuem para o desempenho dessas carteiras no longo prazo.
+
+
+## Lacunas de Pesquisa e Justificativa
+
+### Lacuna de pesquisa
+
+Apesar da ampla documentação internacional sobre o desempenho superior das estratégias de investimento em valor, grande parte da literatura empírica operacionaliza o conceito de value investing por meio de métricas contábeis simplificadas, como book-to-market, preço/lucro ou preço/valor patrimonial. Embora essas proxies tenham relevância empírica, elas não capturam plenamente o conceito econômico de valor intrínseco originalmente proposto por @graham2003intelligent, tampouco incorporam, de forma sistemática, o princípio central da Margem de Segurança.
+
+No contexto brasileiro, observa-se avanço relevante na adaptação dos filtros de Graham à realidade do mercado acionário nacional @palazzo2018carteiras, especialmente em estudos que ajustam critérios de liquidez, endividamento e lucratividade. Ainda assim, a literatura nacional permanece marcada por uma abordagem fragmentada do value investing, na qual múltiplos fundamentalistas são utilizados de forma isolada, sem a consolidação desses critérios em uma métrica unificada de valor econômico que represente, de forma explícita, o valor intrínseco dos ativos.
+
+Adicionalmente, embora alguns estudos reportem desempenho superior de carteiras classificadas como “baratas”, permanece pouco explorada a distinção entre retornos anormais e compensações por risco sistemático. Em particular, carece de investigação empírica a decomposição do desempenho dessas estratégias à luz de modelos multifatoriais adaptados ao mercado brasileiro, capazes de captar exposições relevantes a fatores como tamanho, momentum e iliquidez. Essa lacuna dificulta a compreensão da natureza econômica dos retornos associados às estratégias de valor, especialmente no que se refere à compatibilidade entre o value investing e a Hipótese dos Mercados Eficientes.
+
+Dessa forma, identifica-se uma lacuna na literatura quanto à aplicação sistemática da fórmula de valor intrínseco de Graham como critério central de seleção de ativos, à incorporação explícita da Margem de Segurança como condição de investimento e à avaliação rigorosa das fontes de retorno dessas estratégias no mercado acionário brasileiro.
+
+
+
+
+
+### Justificativa {#sec-justificativa}
+
+  
+Este estudo justifica-se, em primeiro lugar, do ponto de vista teórico, ao resgatar os fundamentos clássicos do value investing e reposicionar o conceito de valor intrínseco como elemento central do processo de seleção de ativos. Ao fazê-lo, o trabalho contribui para reduzir a distância entre a formulação conceitual original de Graham e sua aplicação empírica contemporânea, superando abordagens baseadas exclusivamente em múltiplos contábeis isolados.
+
+Do ponto de vista empírico, a pesquisa oferece evidência para o mercado brasileiro ao avaliar carteiras construídas com base na fórmula de valor intrínseco de Graham, acrescida de um critério explícito de Margem de Segurança. A análise do desempenho dessas carteiras ao longo de um horizonte temporal extenso permite examinar não apenas o retorno acumulado e as métricas ajustadas ao risco, mas também a estabilidade e a persistência dos resultados em diferentes condições de mercado.
+
+Sob a perspectiva metodológica, o estudo contribui ao integrar a seleção fundamentalista de ativos com modelos contemporâneos de apreçamento de ativos, incluindo o CAPM e modelos multifatoriais. Essa abordagem possibilita distinguir se o desempenho superior das estratégias de valor decorre de ineficiências persistentes de mercado ou de exposições sistemáticas a fatores de risco amplamente reconhecidos na literatura, como tamanho, momentum e iliquidez.
+
+Por fim, a pesquisa apresenta relevância prática ao fornecer subsídios para investidores e gestores interessados em estratégias fundamentadas, ao mesmo tempo em que contribui para o debate acadêmico sobre a eficiência informacional do mercado acionário brasileiro. Ao esclarecer as fontes subjacentes de retorno das carteiras de valor, o estudo amplia a compreensão sobre os limites e o alcance do value investing em mercados emergentes.
+
+
+# Objetivos {#sec-objetivos}
+
+
+
+## Objetivo Geral {#sec-objgeral}
+
+Analisar o desempenho de carteiras de ações construídas com base na fórmula de valor intrínseco proposta por Benjamin Graham, empiricamente adaptada ao mercado acionário brasileiro, incorporando explicitamente o critério de Margem de Segurança, a fim de investigar se o desempenho superior dessas estratégias decorre de retornos anormais ou de exposições sistemáticas a fatores de risco reconhecidos pela literatura de apreçamento de ativos.
+
+H₁: A aplicação sistemática da fórmula de valor intrínseco proposta por Graham gera retornos ajustados ao risco superiores aos obtidos pelos filtros tradicionais adaptados por Palazzo et al. (2018), no mercado brasileiro no período analisado
+
+
+## Objetivos Específicos {#sec-objespecficos}
+
+
+1. Construir carteiras de ações no mercado brasileiro a partir da aplicação sistemática da fórmula de valor intrínseco de Graham, adaptada às características institucionais e macroeconômicas do Brasil, incluindo a exigência de uma Margem de Segurança mínima em relação ao valor intrínseco estimado.
+
+2. Avaliar o desempenho dessas carteiras em termos de retornos acumulados, retornos anualizados e métricas de desempenho ajustadas ao risco, com ênfase em medidas sensíveis a risco de cauda, como o Índice de Sharpe Modificado.
+
+3. Comparar o desempenho das carteiras de valor com um portfólio representativo do mercado acionário brasileiro, a fim de verificar a existência de desempenho econômico superior ao longo do período analisado.
+
+4. Estimar modelos de apreçamento de ativos — incluindo o Capital Asset Pricing Model (CAPM) e modelos multifatoriais — para identificar as exposições das carteiras aos principais fatores de risco sistemáticos.
+
+5. Investigar a presença de retornos anormais (alfa) após o controle por fatores de risco de mercado, tamanho, valor, momentum e iliquidez, utilizando um modelo multifatorial de cinco fatores baseado nos fatores de risco do NEFIN.
+
+6. Analisar a natureza econômica do desempenho das carteiras, distinguindo se os retornos superiores observados são explicados por ineficiências persistentes de mercado ou por compensações associadas à exposição sistemática a fatores de risco.
+
+7. Contribuir para a literatura nacional sobre value investing, esclarecendo o papel do valor intrínseco e da Margem de Segurança como critérios centrais de seleção de ativos no mercado acionário brasileiro.
+
+
+
+# Metodologia {#sec-metodologia}
+
+
+
+Esta pesquisa adota abordagem quantitativa aplicada ao mercado acionário brasileiro, analisando o desempenho de uma estratégia de Value Investing baseada na filosofia de Benjamin Graham. O objetivo é verificar se uma carteira formada por ações subavaliadas em 31 de março de 2015 apresentou retornos superiores ao mercado no longo prazo, após ajuste ao risco.
+
+## Universo de análise e coleta de dados
+
+O universo inicial da amostra contempla **366 empresas listadas na B3**, selecionadas conforme disponibilidade de dados fundamentalistas e preços históricos na plataforma **Economatica**. Foram incluídas empresas que vieram a ser deslistadas ao longo do período, mitigando o viés de sobrevivência, conforme @BrownGoetzmannIbbotson1995.
+
+A escolha desse intervalo temporal busca assegurar a robustez da análise empírica, permitindo avaliar se os filtros de valor — incluindo a fórmula de Graham — preservam desempenho consistente em contextos de elevada volatilidade, retração dos lucros, oscilações nas taxas de juros e distintos níveis de confiança do mercado. Ademais, um horizonte mais amplo viabiliza o cálculo de métricas como retornos acumulados, Índice de Sharpe e alfa de Jensen com maior significância estatística.
+
+A base de dados será composta por todas as empresas listadas na B3, com exceção de:
+(a) companhias do setor financeiro, cujos demonstrativos contábeis não são diretamente comparáveis aos dos demais setores;
+(b) empresas que não apresentarem negociação em, no mínimo, 90% dos pregões do período analisado, de modo a assegurar liquidez mínima;
+(c) ativos com informações inconsistentes ou incompletas.
+
+Adicionalmente, os dados de preços e indicadores financeiros serão ajustados por eventos societários relevantes, tais como desdobramentos (splits), bonificações e dividendos, de forma a refletir adequadamente o retorno econômico efetivo dos ativos e garantir a comparabilidade intertemporal dos múltiplos empregados nos filtros de seleção.
+
+
+
+
+
+
+
+```{r}
+#| label: tbl-2
+#| tbl-cap: "Comparação entre os filtros de Graham (2007) e Palazzo et al. (2018)."
+#| echo: false
+
+# Usar data.frame em vez de tribble para melhor controle
+tab02 <- data.frame(
+  Numero = c(1, 2, 3, 4, 5, 6, 7),
+  Graham = c(
+    "Tamanho apropriado: receita mínima de US\\$ 100 milhões para empresas industriais e ativos totais de US\\$ 50 milhões para concessionárias.",
+    "Condição financeira forte: liquidez corrente (ativos circulantes ÷ passivo circulante) maior que 2; dívida de longo prazo inferior ao patrimônio líquido.",
+    "Dividendos ininterruptos por pelo menos 20 anos.",
+    "Sem prejuízos nos últimos 10 anos.",
+    "Crescimento mínimo de 1/3 no lucro por ação (LPA) nos últimos 10 anos.",
+    "P/L (Preço sobre Lucro) não deve exceder 15 vezes a média dos lucros dos últimos 3 anos.",
+    "P/VPA (Preço sobre Valor Patrimonial) não deve ser maior que 1{,}5."
+  ),
+  Palazzo = c(
+    "Receita operacional bruta anual ou anualizada superior a R\\$ 300 milhões.",
+    "Liquidez corrente superior a 1{,}22.",
+    "Dividendos ininterruptos por pelo menos 5 anos.",
+    "Lucros positivos nos últimos 5 anos.",
+    "Crescimento de lucros de pelo menos 2{,}66\\% ao ano.",
+    "P/L inferior a 7{,}0.",
+    "P/VPA inferior a 1{,}0."
+  )
+)
+
+# Nomear as colunas adequadamente
+colnames(tab02) <- c("Nº", "Critérios de Graham (2007)", "Critérios de Palazzo et al. (2018)")
+
+# Criar a tabela com formatação adequada
+tab02 %>%
+  kable("latex", 
+        booktabs = TRUE, 
+        align = c("c", "l", "l"),  # Alinhamento simples
+        escape = FALSE) %>%
+  kable_styling(
+    latex_options = c("hold_position"),
+    font_size = 11,  # Reduzir tamanho da fonte
+    full_width = TRUE  # Usar largura total disponível
+  ) %>%
+  row_spec(0, bold = TRUE) %>%  # Cabeçalho em negrito
+  column_spec(1, width = "1cm") %>%  # Largura da coluna de números
+  column_spec(2, width = "6.5cm") %>%  # Largura da coluna Graham
+  column_spec(3, width = "6.5cm")     # Largura da coluna Palazzo
+```
+
+
+
+## Critérios fundamentais de Graham adaptados ao Brasil
+
+Foram aplicados filtros inspirados em Graham, com adaptações sugeridas por @palazzo2018carteiras para o contexto brasileiro, incluindo:
+
+1. **Receita operacional bruta**
+2. **Liquidez Corrente > 1,22**
+3. **Dividendos Ininterruptos por 5 anos **
+5. **Lucros positivos nos últimos 5 anos **
+6. **Crescimento dos lucros **
+7. **P/L < 15**
+8. **P/VPA < 1,5**
+9. **Valor Intrínseco e Margem de Segurança**
+
+
+
+### Receita operacional bruta
+
+Com o objetivo de estabelecer um critério objetivo para a classificação de grandes empresas, adotou-se como referência a legislação federal brasileira, especificamente o artigo 3º da Lei nº 11.638, de 28 de dezembro de 2007. De acordo com esse dispositivo legal, são consideradas grandes empresas aquelas que apresentam receita operacional bruta anual, ou anualizada, superior a R$ 300.000.000,00 (trezentos milhões de reais).
+
+### Liquidez Corrente ≥ 1,22
+
+Os indicadores de liquidez são amplamente utilizados para avaliar a capacidade financeira de uma empresa em honrar seus compromissos no curto prazo. Conforme destacado por @assaf2002financas, esses indicadores permitem analisar a situação financeira da firma frente às suas obrigações correntes. Dentre eles, a liquidez corrente é um dos mais empregados na análise econômico-financeira, sendo calculada pela razão entre o ativo circulante e o passivo circulante, conforme a expressão:
+
+Índice de Liquidez Corrente = Ativo Circulante / Passivo Circulante
+
+Esse índice expressa a capacidade da empresa de liquidar suas obrigações de curto prazo por meio da realização de seus ativos circulantes em uma determinada data. Sob o pressuposto do princípio contábil da continuidade, entende-se que os ativos convertidos em caixa são continuamente substituídos ao longo do tempo, em maior ou menor intensidade, a depender do nível de vendas e da gestão dos prazos médios de recebimento e pagamento.
+
+Segundo @securato2002gestao, um patamar considerado satisfatório para o índice de liquidez corrente é igual ou superior a 1, critério compatível com a noção de capital circulante líquido positivo. @assaf2002financas corrobora essa interpretação ao afirmar que índices superiores a 1 indicam uma posição financeira mais confortável no curto prazo. No entanto, conforme ressalta @securato2002gestao, níveis excessivamente elevados de liquidez não implicam, necessariamente, maior eficiência na gestão financeira, podendo refletir alocação ineficiente de recursos ou excesso de ativos de baixa rentabilidade.
+
+No contexto do value investing, @graham2003intelligent propôs, como critério adicional de segurança financeira, que as empresas apresentassem liquidez corrente igual ou superior a 2, com o objetivo de assegurar ampla capacidade de honrar obrigações de curto prazo e reduzir o risco de perdas permanentes do capital investido. Contudo, a aplicação direta desse patamar ao mercado brasileiro mostra-se excessivamente restritiva, reduzindo de forma significativa o universo de ativos elegíveis.
+
+Ao adaptar empiricamente os filtros de Graham à realidade da B3, @palazzo2018carteiras identificou que a mediana da liquidez corrente das empresas brasileiras situava-se em torno de 1,22, refletindo características estruturais distintas daquelas observadas em mercados desenvolvidos. Adicionalmente, os resultados apresentados por Palazzo indicam que, quando aplicado de forma isolada, o filtro de liquidez corrente apresentou desempenho inferior em termos de retorno ajustado ao risco, evidenciado por índices de Sharpe negativos, sugerindo que esse critério não deve ser interpretado como um fator gerador direto de retorno, mas sim como um filtro de qualidade financeira.
+
+Dessa forma, neste estudo, a adoção do ponto de corte de 1,22 justifica-se por sua função como critério de solvência mínima, preservando o princípio de segurança defendido por Graham, ao mesmo tempo em que incorpora uma adaptação metodológica empiricamente fundamentada e compatível com as especificidades do mercado acionário brasileiro. Essa combinação de métricas busca identificar empresas negociadas a preços descontados e, simultaneamente, financeiramente sólidas, reduzindo o risco de seleção de companhias com deterioração operacional, sem impor restrições excessivas ao universo amostral.
+
+
+
+
+### Dividendos Ininterruptos por 5 anos 
+
+
+Graham recomendava a utilização de um horizonte temporal mínimo de 20 anos como critério de avaliação da consistência dos resultados das empresas, de forma a assegurar estabilidade financeira e reduzir a probabilidade de selecionar firmas com desempenho meramente circunstancial. No entanto, a aplicação direta desse horizonte ao mercado brasileiro mostrou-se excessivamente restritiva, especialmente considerando as transformações estruturais, institucionais e contábeis observadas no período recente. Diante desse contexto, @palazzo2018carteiras propôs a redução do horizonte temporal para cinco anos, argumentando que esse intervalo representa um compromisso metodológico mais adequado à realidade da B3. Ao adotar o mesmo período mínimo de cinco anos tanto para a exigência de lucros consecutivos quanto para a seleção de empresas com histórico consistente de pagamento de dividendos, busca-se evitar a inclusão de companhias que, embora tenham distribuído dividendos à custa de reservas de lucros, não apresentaram lucratividade recorrente, bem como aquelas que obtiveram lucros, mas não os converteram em remuneração ao acionista. Dessa forma, o critério de cinco anos preserva o princípio de consistência defendido por Graham, ao mesmo tempo em que incorpora uma adaptação empírica compatível com as especificidades do mercado brasileiro.
+
+
+### Lucros positivos nos últimos 5 ano
+
+Um dos pilares centrais do value investing reside na estabilidade dos resultados das empresas ao longo do tempo, refletindo sua capacidade de resistir a choques decorrentes dos ciclos econômicos. Nesse sentido, a análise empírica conduzida por @palazzo2018carteiras evidencia que a exigência de lucros ininterruptos constitui um critério relevante na seleção de ativos sob a ótica fundamentalista. Ao avaliar diferentes horizontes temporais, o autor demonstra que a adoção de um período mínimo de cinco anos de lucratividade contínua representa um equilíbrio adequado entre rigor analítico e viabilidade empírica no mercado brasileiro. Os resultados obtidos em seu estudo indicam que o filtro de lucros positivos nos últimos cinco anos, quando aplicado de forma isolada, foi capaz de gerar carteiras com desempenho ajustado ao risco superior ao do Ibovespa, conforme mensurado pelo índice de Sharpe, além de apresentar menor exposição ao risco sistêmico. Adicionalmente, quando esse filtro foi removido de uma seleção que contemplava os demais critérios fundamentais, observou-se deterioração do desempenho das carteiras, evidenciada pela redução do índice de Sharpe e pelo aumento do beta. Tais evidências reforçam a relevância do critério de lucratividade consistente como elemento central na aplicação do value investing ao contexto brasileiro, corroborando a adaptação metodológica proposta por Palazzo em relação às recomendações originais de Graham.
+
+
+### Crescimento dos lucros 
+
+@palazzo2018carteiras demonstrou empiricamente que o filtro 5, associado à exigência de crescimento decenal dos lucros de pelo menos 30%, apresentou um comportamento ambíguo na construção das carteiras. Quando aplicado de forma isolada, esse critério foi capaz de gerar resultados significativamente superiores ao Ibovespa, tanto em termos de índice de Sharpe quanto de alfa, sugerindo que o crescimento consistente dos lucros pode estar associado à geração de retornos excedentes. Contudo, ao ser removido isoladamente de um modelo que incorporava simultaneamente todos os demais filtros fundamentalistas, observou-se uma melhora no desempenho ajustado ao risco das carteiras. Tal evidência indica que a imposição de um critério rigoroso de crescimento contínuo dos lucros ao longo de um horizonte de dez anos pode introduzir restrições excessivas ao processo de seleção de ativos no mercado brasileiro, reforçando a necessidade de adaptações do modelo original de Graham às especificidades institucionais e macroeconômicas do país.
+
+Diante dessas evidências, e considerando adicionalmente o contexto macroeconômico do período de coleta de dados deste estudo — caracterizado por fases prolongadas de desaceleração econômica — a aplicação do filtro de crescimento decenal de lucros mostra-se particularmente limitada. Em ambientes de mercado em baixa, a ocorrência de crescimento expressivo e contínuo dos lucros ao longo de longos horizontes temporais torna-se rara, o que compromete a viabilidade empírica do filtro e reduz de forma significativa o universo de empresas elegíveis. Assim, em consonância com os resultados apresentados por @palazzo2018carteiras, opta-se por não utilizar o filtro 5 neste trabalho, entendendo que sua exclusão permite uma adaptação mais realista do modelo de Graham às condições do mercado brasileiro e ao período analisado, sem prejuízo à consistência fundamentalista da estratégia adotada.
+
+
+### P/L < 15
+
+@graham2003intelligent atribuía relevância central à relação entre lucro e preço (earnings yield) como medida de atratividade de uma ação, defendendo que esse indicador deveria ser comparado ao rendimento nominal oferecido por títulos de renda fixa considerados livres de risco. Sob essa perspectiva, o investimento em ações só se justificaria quando o retorno implícito do lucro fosse suficientemente superior à alternativa de renda fixa disponível no mercado. Ao transpor esse raciocínio para o contexto brasileiro, @palazzo2018carteiras utilizou a taxa Selic como proxy para o ativo livre de risco, evidenciando que, no final de 2004, o rendimento oferecido pelos títulos públicos superava amplamente o earnings yield médio do mercado acionário. Nesse cenário, um critério excessivamente restritivo de preço/lucro, como o filtro P/L menor ou igual a 7, mostrou-se inadequado ao mercado brasileiro: quando aplicado isoladamente, resultou em carteiras com desempenho inferior ao índice de mercado e maior exposição ao risco, tanto em termos de volatilidade quanto de risco sistêmico. Além disso, os resultados empíricos indicam que empresas com P/L muito baixo frequentemente refletiam expectativas negativas quanto aos lucros futuros, configurando armadilhas de valor (value traps). Observou-se ainda que, quando combinado com outros filtros, o critério $P/L \leq 7$ tornava-se redundante diante do filtro baseado na relação conjunta P/L × P/VPA, não alterando a composição nem o desempenho das carteiras. Diante dessas evidências, e considerando o princípio original de @graham2003intelligent de que o P/L não deveria exceder 15 como limite geral de prudência, este trabalho opta por adotar esse patamar mais flexível. Tal escolha preserva o fundamento conceitual do value investing, evita restrições excessivas ao universo de ativos e mostra-se mais compatível com as condições estruturais e macroeconômicas do mercado brasileiro no período analisado.
+
+### P/VPA < 1,5
+
+Com o objetivo de estabelecer um patamar adequado para o uso do índice preço/valor patrimonial por ação (P/VPA) como critério de seleção de ações, estudos anteriores analisaram a distribuição desse indicador entre as empresas com dados disponíveis na base da Economatica®, avaliando diferentes níveis de corte e seus impactos sobre a formação das carteiras. Evidências empíricas para o mercado brasileiro indicam que a adoção de limites excessivamente restritivos para o P/VPA reduz de forma significativa o universo de ativos elegíveis, comprometendo a viabilidade empírica e a robustez estatística das carteiras formadas @palazzo2018carteiras. Diante desse contexto, este trabalho opta por utilizar o critério de P/VPA menor ou igual a 1,5, conforme originalmente sugerido por @graham1934security em Security Analysis e reafirmado em The Intelligent Investor @graham2003intelligent, por se tratar de um ponto de corte que preserva o princípio fundamental da margem de segurança, ao permitir a aquisição de ativos a preços inferiores ao seu valor contábil, sem impor restrições excessivas à amostra. Essa escolha também se alinha à literatura empírica que documenta a relevância do book-to-market como fator explicativo de retornos no longo prazo, conforme evidenciado por The Cross-Section of Expected Stock Returns, @fama1992cross reforçando a adequação do critério no contexto do mercado acionário brasileiro.
+
+
+### Valor Intrínseco e Margem de Segurança
+
+A taxa básica de juros da economia brasileira foi registrada pela última vez em 15% ao ano, apresentando uma média histórica de 13,84% no período compreendido entre 1999 e 2025, conforme dados do Banco Central do Brasil. Nesse intervalo, a taxa de juros atingiu um pico de 45,0% em março de 1999, refletindo o contexto de instabilidade macroeconômica do início do regime de metas de inflação, e um mínimo histórico de 2,0% em agosto de 2020, em resposta às medidas monetárias adotadas durante a pandemia da COVID-19.
+
+Diante desse cenário estruturalmente marcado por taxas de juros elevadas, o Valor Intrínseco (VI) foi estimado com base na fórmula clássica proposta por @graham2003intelligent, contudo com a adaptação da constante de 22,5 para o valor 7, de modo a refletir de forma mais adequada as condições macroeconômicas e o custo de oportunidade vigentes no mercado brasileiro. 
+
+Originalmente, Graham fundamentava essa fórmula na comparação entre o earnings yield implícito das ações e o rendimento nominal oferecido por títulos públicos considerados livres de risco. No contexto em que seus critérios foram formulados, os rendimentos dos títulos do Tesouro norte-americano situavam-se em patamares relativamente baixos e estáveis, o que tornava justificável a adoção de uma constante mais elevada na equação de avaliação.
+
+$$
+k = \frac{1}{r_f}
+$$
+onde:
+\begin{itemize}
+  \item $r_f$ representa a taxa livre de risco média do período, utilizada como proxy pela taxa Selic.
+\end{itemize}
+
+Aplicando a taxa Selic média histórica do período analisado:
+
+$$
+k = \frac{1}{0{,}1384} \approx 7{,}22 \approx 7
+$$
+
+Ao transpor esse arcabouço teórico para a realidade brasileira, observa-se que a taxa Selic, utilizada neste estudo como proxy para o ativo livre de risco, historicamente apresenta níveis substancialmente superiores aos observados nos mercados desenvolvidos. Tal característica altera de forma significativa a relação risco-retorno entre ativos de renda fixa e renda variável, exigindo uma adaptação metodológica que evite distorções na estimativa do valor intrínseco das ações.
+
+Nesse sentido, a adoção da constante 7 busca alinhar a avaliação das empresas ao custo de oportunidade médio da taxa Selic ao longo do período analisado, impondo um critério mais conservador de atratividade relativa entre renda variável e renda fixa. Dessa forma, a adaptação da fórmula preserva o princípio central do pensamento de Graham — a comparação entre o retorno implícito das ações e alternativas livres de risco — ao mesmo tempo em que ajusta o modelo às especificidades do ambiente macroeconômico brasileiro, reduzindo o risco de superestimação do valor intrínseco em cenários de juros estruturalmente elevados.
+
+
+$$
+VI = \sqrt{7 \times LPA \times VPA}
+$$
+
+
+Somente ações com **Margem de Segurança mínima de 33%** foram incluídas na carteira:
+
+$$
+MOS = \frac{VI - Preço}{VI} \ge 0,33
+$$
+
+
+##  Dados e critérios de seleção
+
+A carteira foi formada em **31/03/2015** e mantida **sem rebalanceamento** até **31/12/2025**, seguindo a filosofia *buy and hold* característica de Benjamin Graham, evitando custos excessivos de transação e permitindo que fundamentos econômicos se materializem ao longo do horizonte de investimento.
+
+Essa janela temporal foi definida com o propósito de abranger distintas fases do ciclo econômico brasileiro, incluindo episódios de recessão, recuperação e expansão, como a crise de 2015–2016, o processo gradual de retomada do crescimento até 2019, os efeitos econômicos da pandemia de COVID-19 em 2020 e os desdobramentos macroeconômicos observados até 2024.
+
+A adoção desse intervalo temporal visa conferir maior robustez à análise empírica, permitindo examinar se os filtros de valor — incluindo a fórmula de Graham — apresentam desempenho consistente em ambientes caracterizados por elevada volatilidade, retração dos lucros, variações significativas nas taxas de juros e mudanças nos níveis de confiança do mercado. Ademais, o horizonte mais longo possibilita a mensuração de métricas como retornos acumulados, índice de Sharpe e alfa de Jensen com maior significância estatística.
+
+A base de dados será composta por todas as empresas listadas na B3, observadas as seguintes exclusões: (a) companhias pertencentes ao setor financeiro, cujos demonstrativos contábeis não são diretamente comparáveis aos dos demais setores; (b) empresas que não apresentarem negociação em pelo menos 90% dos pregões do período analisado, como forma de assegurar liquidez mínima; e (c) ativos que apresentem informações inconsistentes ou incompletas.
+
+Adicionalmente, os dados de preços e indicadores financeiros serão ajustados para eventos societários relevantes, tais como desdobramentos (splits), bonificações e distribuição de dividendos, de modo a refletir com maior precisão o retorno econômico efetivo dos ativos e garantir a comparabilidade intertemporal dos múltiplos empregados nos filtros de seleção.
+
+As informações utilizadas no estudo serão obtidas a partir da plataforma Economatica®, amplamente empregada em pesquisas acadêmicas e análises profissionais no Brasil, a qual disponibiliza dados padronizados, históricos e confiáveis sobre indicadores fundamentalistas, séries de preços ajustados, liquidez e proventos das empresas listadas na B3 – Brasil, Bolsa, Balcão.
+
+Com base nos critérios e procedimentos metodológicos descritos, a Tabela a seguir apresenta a relação das empresas selecionadas na data de formação da carteira, em 31/03/2015, bem como os respectivos valores intrínsecos estimados a partir da aplicação sistemática da fórmula de Graham. Esses valores constituem o ponto de partida para a construção da carteira analisada, permitindo identificar os ativos classificados como subavaliados em relação ao seu valor fundamental. A apresentação conjunta das empresas e de seus valores intrínsecos possibilita visualizar o grau de desconto implícito no momento da seleção, servindo como base para a análise subsequente do desempenho da estratégia buy and hold ao longo do horizonte de investimento considerado.
+
+```{r}
+
+#| label: tbl-vi-2015
+#| tbl-cap: "Ações e valores intrínsecos estimados (2015)"
+#| tbl-align: center
+
+library(knitr)
+
+df <- data.frame(
+  Acao = c("CLSC4","FESA4","CPLE3","EVEN3","SOND6","CMIG4","BMKS3","SHUL4","CGRA4",
+           "MRVE3","HBOR3","RDNI3","DOHL4","EZTC3","GGBR4","CYRE3","RAPT4","ETER3",
+           "FRAS3","POMO4"),
+  Valor_Intrinseco = c(0.091101768,0.280086794,0.286311767,0.322389097,0.322755162,
+                       0.361950848,0.365437475,0.371821493,0.379482761,0.434457707,
+                       0.509618437,0.512652405,0.542905055,0.559294074,0.595636324,
+                       0.596404461,0.605868361,0.643491738,0.671361151,0.772610016)
+)
+
+df <- df[order(df$Valor_Intrinseco), ]
+
+kable(
+  df,
+  booktabs = TRUE,
+  col.names = c("Ação", "Valor Intrínseco (2015)"),
+  digits = 9
+)
+
+```
+
+
+A primeira carteira analisada neste estudo é composta pelas **10 ações mais subavaliadas** segundo o critério de valor intrínseco adotado, selecionadas dentre um universo de **20 ações elegíveis** após a aplicação dos filtros fundamentalistas definidos na metodologia. A carteira contempla empresas pertencentes a diferentes setores da economia brasileira e inclui os ativos BMKS3, CGRA4, CLSC4, CMIG4, CPLE3, EVEN3, FESA4, MRVE3, SHUL4 e SOND6, todos negociados na B3.  
+
+A segunda carteira analisada neste estudo é composta pelas **10 ações relativamente mais sobreavaliadas** segundo o critério de valor intrínseco adotado, selecionadas dentre o mesmo universo de **20 ações elegíveis** após a aplicação dos filtros fundamentalistas definidos na metodologia. A carteira contempla empresas pertencentes a diferentes setores da economia brasileira e inclui os ativos HBOR3, RDNI3, DOHL4, EZTC3, GGBR4, CYRE3, RAPT4, ETER3, FRAS3 e POMO4, todos negociados na B3. Essa composição visa manter diversificação setorial, ao mesmo tempo em que preserva a comparabilidade metodológica com a primeira carteira. 
+
+Assim como na carteira de ações subavaliadas, a carteira de ativos mais caros é tratada como igualmente ponderada ao longo de todo o período de análise, permitindo avaliar o desempenho agregado da estratégia sem a influência de vieses decorrentes da atribuição de pesos específicos aos ativos individuais.
+
+
+
+# Resultados e Discussão {#sec-resultados}
+
+
+## Importação e Preparação dos Fatores de Risco do NEFIN
+
+Inicialmente, foram importados os fatores de risco diários disponibilizados pelo Núcleo de Estudos em Finanças (NEFIN), compreendendo o prêmio de risco de mercado (Rm − Rf), os fatores de tamanho (SMB), valor (HML), momentum (WML), iliquidez (IML) e a taxa livre de risco. Os dados diários, expressos em retornos simples, abrangem o período de janeiro de 2001 até dezembro de 2025, totalizando 6.177 observações.
+
+Considerando que os fatores do NEFIN são fornecidos em base diária, optou-se pela agregação mensal por meio de composição geométrica, procedimento metodologicamente consistente com retornos simples. Esse tratamento evita distorções associadas à soma aritmética de retornos e assegura coerência com os retornos mensais das ações e do ETF utilizados no estudo. Após a agregação, obteve-se uma série mensal com 300 observações, alinhada ao padrão adotado em estudos empíricos de apreçamento de ativos no mercado brasileiro.
+
+## Retornos da Carteira e do ETF de Mercado
+
+Os retornos mensais da carteira foram construídos a partir de uma estratégia buy-and-hold igualmente ponderada, composta por 10 ações brasileiras selecionadas previamente, no período de março de 2015 a dezembro de 2025. Os preços ajustados foram obtidos via Yahoo Finance, o que garante a incorporação de proventos e eventos corporativos.
+Como proxy de mercado, foi utilizado o ETF BOVA11, representativo do índice Ibovespa. Devido a diferenças de convenção entre as datas finais de negociação do Yahoo Finance (último dia útil do mês) e as datas de referência do NEFIN (último dia do mês-calendário), foi necessário emparelhar as séries por ano e mês. Essa estratégia assegurou o correto alinhamento temporal entre os retornos da carteira, do ETF e dos fatores de risco, resultando em uma base final com 130 observações mensais comuns.
+
+## Medidas de Desempenho Ajustadas ao Risco
+
+### Índice de Sharpe Modificado
+
+O desempenho ajustado ao risco foi avaliado por meio do Índice de Sharpe Modificado, utilizando o *Value at Risk* (VaR) como medida de risco, conforme proposto por Dowd (2000) e operacionalizado no pacote *PerformanceAnalytics*. Essa métrica mostra-se particularmente adequada em contextos nos quais os retornos apresentam assimetrias e caudas pesadas, característica frequentemente observada em mercados emergentes.
+
+Os resultados indicam que a carteira apresentou um Índice de Sharpe Modificado anualizado de **1,04**, substancialmente superior ao valor observado para o ETF BOVA11 (**0,16**). Esse resultado sugere que, ao incorporar explicitamente o risco de cauda, a carteira gerou retorno excedente significativamente maior por unidade de risco assumido, evidenciando desempenho superior sob a ótica de risco–retorno e reforçando a atratividade da estratégia baseada em ativos subavaliados.
+
+
+
+### Retornos Acumulados e Anualizados
+
+No período analisado, a carteira apresentou um retorno acumulado de aproximadamente **636%**, enquanto o ETF BOVA11 acumulou cerca de **219%**. Em termos anualizados, os retornos geométricos foram de **20,24% ao ano** para a carteira e **11,31% ao ano** para o ETF, respectivamente.
+
+O gráfico de retornos acumulados evidencia que, embora ambas as estratégias estejam sujeitas a episódios de elevada volatilidade — especialmente em períodos de crise nos mercados financeiros —, a carteira manteve desempenho superior ao longo de todo o horizonte de investimento. Esse resultado é consistente com evidências da literatura que apontam para o potencial de estratégias fundamentadas em critérios de valor e margem de segurança apresentarem retornos superiores no longo prazo, ainda que acompanhadas por flutuações relevantes no curto prazo.
+
+
+
+
+## Modelos de Apreçamento de Ativos
+
+### CAPM
+
+Os resultados do modelo CAPM indicam que o retorno excedente da carteira apresenta relação estatisticamente significativa com o fator de mercado. O coeficiente estimado para o prêmio de mercado é positivo e estatisticamente significativo ao nível de 1%, com valor de $\beta \approx 0{,}84$, sugerindo que a carteira apresenta sensibilidade inferior à unidade em relação às variações do mercado agregado, caracterizando um perfil de risco sistemático moderado.
+
+O intercepto (alfa) estimado é positivo e estatisticamente significativo ao nível de 5%, indicando evidência de geração de retornos anormais quando considerado apenas o ajuste pelo risco de mercado. Esse resultado sugere que, no contexto do CAPM, a carteira apresenta desempenho superior que não é plenamente explicado pelo fator de mercado, o que é compatível com a hipótese de que estratégias baseadas em critérios de valor possam capturar ineficiências de precificação.
+
+O coeficiente de determinação ajustado do modelo ($R^2_{aj} \approx 0{,}62$) indica que cerca de 62% da variação dos retornos excedentes da carteira é explicada pelo fator de mercado, valor considerado elevado para um modelo unifatorial, mas inferior ao observado nos modelos multifatoriais estimados posteriormente.
+
+Os testes de diagnóstico apontam limitações na especificação do modelo. O teste RESET rejeita a hipótese nula de correta especificação funcional, sugerindo possível omissão de variáveis relevantes. Adicionalmente, o teste de White indica a presença de heterocedasticidade nos resíduos. Por outro lado, o teste de Breusch-Godfrey não fornece evidências de autocorrelação serial de ordem até três, e o teste de Shapiro–Wilk não rejeita a hipótese de normalidade dos resíduos.
+
+Embora a presença de heterocedasticidade e a indicação de erro de especificação recomendem cautela na inferência baseada em erros-padrão clássicos, tais resultados são recorrentes em séries financeiras mensais. Essas limitações podem ser mitigadas por meio da utilização de erros-padrão robustos e pela adoção de modelos multifatoriais, os quais são explorados nas análises subsequentes.
+
+
+
+### Modelo Fama–French de Três Fatores
+
+A inclusão dos fatores tamanho (SMB) e valor (HML) no modelo resulta em melhora do ajuste em relação ao CAPM. O coeficiente associado ao prêmio de mercado permanece positivo e estatisticamente significativo ao nível de 1%, embora com magnitude inferior à observada no modelo unifatorial, indicando que parte do risco anteriormente atribuído exclusivamente ao fator de mercado passa a ser capturada pelos fatores adicionais.
+
+O fator tamanho (SMB) apresenta coeficiente positivo e estatisticamente significativo ao nível de 1%, sugerindo que a carteira possui exposição sistemática a empresas de menor capitalização. Por outro lado, o coeficiente associado ao fator valor (HML), embora positivo, não se mostra estatisticamente significativo, indicando que o efeito valor tradicional, medido pela razão book-to-market, não explica de forma isolada os retornos da carteira nesse modelo.
+
+O intercepto estimado permanece estatisticamente não significativo, sugerindo ausência de retornos anormais após o controle simultâneo pelos fatores de mercado, tamanho e valor. O coeficiente de determinação ajustado eleva-se para aproximadamente $R^2_{aj} = 0{,}66$, representando ganho relevante de poder explicativo em relação ao CAPM, ainda que inferior ao observado nos modelos multifatoriais mais abrangentes estimados posteriormente.
+
+Os testes de diagnóstico indicam algumas limitações na especificação do modelo. O teste RESET rejeita a hipótese nula de correta especificação funcional ao nível de 5%, sugerindo possível omissão de fatores relevantes. Em contrapartida, o teste de White não rejeita a hipótese de homocedasticidade dos resíduos, e o teste de Breusch-Godfrey não fornece evidências de autocorrelação serial.
+
+Adicionalmente, o teste de Shapiro–Wilk não rejeita a hipótese de normalidade dos resíduos, indicando distribuição aproximadamente normal. Em conjunto, esses resultados sugerem que, embora o modelo de três fatores represente avanço em relação ao CAPM, ele ainda não captura plenamente a estrutura de risco associada aos retornos da carteira, justificando a análise por meio de modelos multifatoriais mais completos.
+
+### Modelo de Quatro Fatores de Carhart
+
+A incorporação do fator momento (WML) resulta em incremento adicional do poder explicativo do modelo em relação à especificação de três fatores. O coeficiente associado ao fator WML é positivo e estatisticamente significativo ao nível de 1%, indicando que a carteira apresenta exposição sistemática a estratégias baseadas na persistência de retornos passados.
+
+O fator de mercado permanece positivo e estatisticamente significativo, embora com coeficiente inferior ao observado no CAPM, enquanto o fator tamanho (SMB) também mantém significância estatística, reforçando a evidência de que a carteira está exposta a empresas de menor capitalização. O fator valor (HML), apesar de apresentar coeficiente positivo, não se mostra estatisticamente significativo, sugerindo que o efeito valor tradicional não explica de forma isolada os retornos da carteira nesse modelo.
+
+O intercepto estimado permanece estatisticamente não significativo, indicando ausência de retornos anormais após o controle simultâneo pelos fatores de mercado, tamanho, valor e momentum. O coeficiente de determinação ajustado eleva-se para aproximadamente $R^2_{aj} = 0{,}67$, representando ganho moderado de poder explicativo em relação ao modelo Fama–French de três fatores.
+
+Os testes de diagnóstico não indicam problemas econométricos relevantes. O teste RESET não rejeita a hipótese nula de correta especificação funcional, enquanto os testes de White e Breusch-Godfrey não fornecem evidências de heterocedasticidade ou autocorrelação serial, respectivamente. Adicionalmente, o teste de Shapiro–Wilk não rejeita a hipótese de normalidade dos resíduos, reforçando a adequação estatística do modelo de quatro fatores aos dados analisados.
+
+
+
+### Modelo de Cinco Fatores Fama-French incorporando dados NEFIN
+
+A inclusão do fator investimento/iliquidez (IML) no modelo de cinco fatores resulta em incremento adicional, porém moderado, do poder explicativo em relação ao modelo de quatro fatores. O coeficiente de determinação ajustado atinge aproximadamente $R^2_{aj} = 0{,}68$, indicando ganho marginal de explicação dos retornos da carteira, consistente com a evidência empírica obtida nos modelos anteriores.
+
+O prêmio de mercado permanece positivo e estatisticamente significativo ao nível de 1%, assim como o fator momento (WML). O fator tamanho (SMB), embora positivo, perde significância estatística nesse modelo mais abrangente, enquanto o fator valor (HML) continua não significativo, sugerindo que seus efeitos são parcialmente absorvidos por outros fatores incluídos na especificação.
+
+O coeficiente associado ao fator investimento/iliquidez (IML) é positivo e estatisticamente significativo ao nível de 5%, indicando que características relacionadas a investimento e iliquidez desempenham papel relevante na explicação dos retornos da carteira. Esse resultado sugere que parte do desempenho observado está associada à exposição a empresas com padrões específicos de investimento, reforçando a interpretação de que a estratégia captura múltiplas dimensões de risco sistemático.
+
+O intercepto permanece estatisticamente não significativo, reforçando a evidência de ausência de retornos anormais persistentes após o controle simultâneo por múltiplos fatores de risco. Os testes de diagnóstico indicam adequação econométrica do modelo: o teste RESET não rejeita a hipótese de correta especificação funcional, os testes de White e Breusch–Godfrey não apontam evidências de heterocedasticidade ou autocorrelação serial, respectivamente, e o teste de Shapiro–Wilk não rejeita a hipótese de normalidade dos resíduos.
+
+Em conjunto, esses resultados indicam que o modelo de cinco fatores oferece descrição estatisticamente consistente do comportamento dos retornos da carteira, ainda que o ganho explicativo em relação ao modelo de quatro fatores seja relativamente limitado.
+
+## Discussão Geral dos Resultados
+
+De forma geral, os resultados indicam que o desempenho superior da carteira em relação ao ETF de mercado é amplamente explicado por sua exposição sistemática a fatores de risco consagrados na literatura de apreçamento de ativos, em especial aos fatores tamanho (SMB), momentum (WML) e investimento/iliquidez (IML). A significância estatística e a estabilidade dos coeficientes associados a esses fatores nos modelos multifatoriais sugerem que a carteira incorpora, de maneira consistente, fontes de retorno associadas a prêmios de risco persistentes, amplamente documentados tanto em mercados desenvolvidos quanto emergentes.
+
+A ausência de alfa estatisticamente significativo nos modelos multifatoriais mais abrangentes reforça a interpretação de que os retornos observados não decorrem de ineficiências evidentes de mercado ou de habilidade excepcional de seleção após o adequado controle pelos fatores de risco relevantes. Embora o alfa seja positivo e significativo no modelo CAPM, sua perda de significância à medida que fatores adicionais são incorporados indica que o desempenho superior da carteira é majoritariamente explicado por exposições sistemáticas, e não por retornos anormais persistentes.
+
+O ganho incremental de poder explicativo à medida que novos fatores são adicionados — particularmente com a inclusão do fator momentum e, posteriormente, do fator investimento/iliquidez — evidencia que a abordagem multifatorial oferece uma descrição mais completa da dinâmica dos retornos da carteira do que o CAPM tradicional. Nesse contexto, observa-se que o fator valor tradicional (HML), embora apresente coeficiente positivo, não se mostra estatisticamente significativo, sugerindo que o critério de valor intrínseco utilizado na construção da carteira captura dimensões distintas daquelas mensuradas pelo book-to-market convencional.
+
+Em conjunto, esses achados são consistentes com a literatura empírica aplicada ao mercado brasileiro e reforçam a robustez dos modelos multifatoriais como instrumentos adequados para a avaliação de desempenho ajustado ao risco, especialmente em economias emergentes caracterizadas por maior volatilidade, estruturas de mercado menos profundas e regimes macroeconômicos historicamente marcados por taxas de juros elevadas. Assim, os resultados sustentam a interpretação de que estratégias fundamentadas em critérios de valor e margem de segurança, quando avaliadas por modelos multifatoriais, não violam os pressupostos da precificação racional dos ativos, mas operam como mecanismos de exposição sistemática a prêmios de risco economicamente plausíveis.
+
+
+
+
+
+
+
+
+# Referências {#sec-referencias .unnumbered}
+
+::: {#refs}
+:::
+
+
+
+
